@@ -17,4 +17,15 @@ class Customer extends Model
         'alamat',
         'no_telepon',
     ];
+
+    //relationship
+    public function users()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
 }

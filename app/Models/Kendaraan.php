@@ -27,4 +27,10 @@ class Kendaraan extends Model
         return $this->morphTo('jenis_kendaraan');
     }
 
+    //relationship
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
 }
