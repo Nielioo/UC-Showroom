@@ -7,7 +7,8 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+            <div class="bg-white overflow-hidden shadow-md sm:rounded-lg p-4">
+
                 <x-validation-errors class="mb-4" />
 
                 <form action="{{ route('customers.update', $customer->id) }}" method="POST">
@@ -27,12 +28,12 @@
                     <div class="mt-4">
                         <x-label for="alamat" value="{{ __('Alamat') }}" />
                         <x-input id="alamat" class="block mt-1 w-full p-2" type="text" name="alamat"
-                        value="{{ $customer->alamat }}" required />
+                            value="{{ $customer->alamat }}" required />
                     </div>
                     <div class="mt-4">
                         <x-label for="no_telepon" value="{{ __('No Telepon') }}" />
                         <x-input id="no_telepon" class="block mt-1 w-full p-2" type="number" name="no_telepon"
-                        value="{{ $customer->no_telepon }}" required />
+                            value="{{ $customer->no_telepon }}" required />
                     </div>
 
                     <x-button class="mt-4 p-1">

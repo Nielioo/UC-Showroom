@@ -8,7 +8,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-md sm:rounded-lg p-4">
-                <a href="{{ route('kendaraans.create') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"> Create New Kendaraan </a> <br>
+                <a href="{{ route('kendaraans.create') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"> Tambah Kendaraan </a> <br>
 
                 @foreach ($kendaraans as $key => $kendaraan)
                     ---------------------------------------- <br>
