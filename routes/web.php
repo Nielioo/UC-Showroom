@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\KendaraanController;
+use App\Http\Controllers\MobilController;
+use App\Http\Controllers\MotorController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\TruckController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,4 +34,9 @@ Route::middleware([
 
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
+
+    Route::resource('kendaraans', KendaraanController::class);
+    Route::resource('mobils', MobilController::class);
+    Route::resource('motors', MotorController::class);
+    Route::resource('trucks', TruckController::class);
 });

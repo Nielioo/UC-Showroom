@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Kendaraan;
 use App\Models\Mobil;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class KendaraanController extends Controller
@@ -11,12 +12,13 @@ class KendaraanController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $kendaraans = Kendaraan::all();
-        $mobils = $kendaraans[3]->jenis_kendaraan;
+        // $kendaraans = Kendaraan::all();
+        // $mobils = $kendaraans[3]->jenis_kendaraan;
 
-        dd($mobils);
+        $kendaraans = Kendaraan::get();
+        return view('kendaraans.index', compact('kendaraans'));
     }
 
     /**
