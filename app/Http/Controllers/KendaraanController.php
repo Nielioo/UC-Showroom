@@ -48,11 +48,11 @@ class KendaraanController extends Controller
         $current_jenis_kendaraan_type = $request->input('jenis_kendaraan_type');
         if ($current_jenis_kendaraan_type == 'Mobil') {
 
-            $mobilvalidated = $request->validate([
+            $mobilValidated = $request->validate([
                 'tipe_bahan_bakar' => 'required',
                 'luas_bagasi' => 'required',
             ]);
-            $mobil = Mobil::create($mobilvalidated);
+            $mobil = Mobil::create($mobilValidated);
             $validated['jenis_kendaraan_id'] = $mobil['id'];
             $validated['jenis_kendaraan_type'] = 'App\\Models\\Mobil';
 
@@ -88,32 +88,78 @@ class KendaraanController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Kendaraan $kendaraan)
+    public function show(string $id)
     {
-        //
+        $kendaraan = Kendaraan::find($id);
+        return view('kendaraans.show', compact('kendaraan'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Kendaraan $kendaraan)
+    public function edit(string $id)
     {
-        //
+        $kendaraan = Kendaraan::find($id);
+        return view('kendaraans.edit', compact('kendaraan'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Kendaraan $kendaraan)
+    public function update(Request $request, string $id)
     {
-        //
+        $validated = $request->validate([
+            'model' => 'required',
+            'tahun' => 'required|digits:4',
+            'jumlah_penumpang' => 'required|digits_between:1,2',
+            'manufaktur' => 'required',
+            'harga' => 'required',
+        ]);
+        $kendaraan = Kendaraan::find($id);
+
+        $kendaraan->update($validated);
+
+        // check if the jenis_kendaraan_type is Mobil or Motor or Truck
+        $current_jenis_kendaraan_type = $kendaraan->jenis_kendaraan_type;
+        if ($current_jenis_kendaraan_type == 'App\\Models\\Mobil') {
+
+            $mobilValidated = $request->validate([
+                'tipe_bahan_bakar' => 'required',
+                'luas_bagasi' => 'required',
+            ]);
+            $mobil = Mobil::find($kendaraan->jenis_kendaraan->id);
+            $mobil->update($mobilValidated);
+
+        } elseif ($current_jenis_kendaraan_type == 'App\\Models\\Motor') {
+            $motorValidated = $request->validate([
+                'kapasitas_bensin' => 'required',
+                'ukuran_bagasi' => 'required',
+            ]);
+            $motor = Motor::find($kendaraan->jenis_kendaraan->id);
+            $motor->update($motorValidated);
+
+        } elseif ($current_jenis_kendaraan_type == 'App\\Models\\Truck') {
+            $truckValidated = $request->validate([
+                'jumlah_roda_ban' => 'required',
+                'luas_area_kargo' => 'required',
+            ]);
+            $truck = Truck::find($kendaraan->jenis_kendaraan->id);
+            $truck->update($truckValidated);
+
+        }
+
+        return redirect(route('kendaraans.index'));
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Kendaraan $kendaraan)
+    public function destroy(string $id)
     {
-        //
+        $kendaraan = Kendaraan::find($id);
+        $kendaraan->jenis_kendaraan->delete();
+        $kendaraan->delete();
+
+        return redirect(route('kendaraans.index'));
     }
 }

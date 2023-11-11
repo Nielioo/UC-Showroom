@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
 
-                <a href="{{ route('customers.create') }}" class="bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded">Tambah customer</a>
+                <a href="{{ route('customers.create') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Tambah customer</a>
 
                 <table class="table w-full text-sm border-b">
                     <thead class="bg-blue-300">
