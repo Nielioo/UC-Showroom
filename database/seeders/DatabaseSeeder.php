@@ -24,6 +24,8 @@ class DatabaseSeeder extends Seeder
                 UserSeeder::class,
                 PermissionTableSeeder::class,
                 AdminUser::class,
+
+                KendaraanSeeder::class,
             ]
         );
     }

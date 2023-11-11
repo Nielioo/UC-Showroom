@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kendaraan;
+use App\Models\Mobil;
 use Illuminate\Http\Request;
 
 class KendaraanController extends Controller
@@ -12,7 +13,10 @@ class KendaraanController extends Controller
      */
     public function index()
     {
-        //
+        $kendaraans = Kendaraan::all();
+        $mobils = $kendaraans[3]->jenis_kendaraan;
+
+        dd($mobils);
     }
 
     /**

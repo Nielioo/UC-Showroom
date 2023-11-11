@@ -21,6 +21,11 @@ return new class extends Migration
             $table->morphs('jenis_kendaraan');
             $table->timestamps();
         });
+
+        Schema::table('kendaraans', function (Blueprint $table) {
+            $table->string('jenis_kendaraan_id')->nullable()->change();
+            $table->string('jenis_kendaraan_type')->nullable()->change();
+        });
     }
 
     /**
