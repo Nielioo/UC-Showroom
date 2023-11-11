@@ -2,11 +2,7 @@
 
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\KendaraanController;
-use App\Http\Controllers\MobilController;
-use App\Http\Controllers\MotorController;
-use App\Http\Controllers\RoleController;
-use App\Http\Controllers\TruckController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,4 +34,5 @@ Route::middleware([
 
     Route::resource('customers', CustomerController::class);
     Route::resource('kendaraans', KendaraanController::class);
+    Route::resource('orders', OrderController::class);
 });
