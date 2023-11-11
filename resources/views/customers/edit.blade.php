@@ -10,8 +10,10 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <x-validation-errors class="mb-4" />
 
-                <form action="{{ route('customers.update', $customer->id) }}" method="PATCH">
+                <form action="{{ route('customers.update', $customer->id) }}" method="POST">
                     @csrf
+                    @method('PUT')
+
                     <div>
                         <x-label for="nama" value="{{ __('Nama') }}" />
                         <x-input id="nama" class="block mt-1 w-full p-2" type="text" name="nama"

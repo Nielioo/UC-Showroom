@@ -67,11 +67,11 @@ class CustomerController extends Controller
     {
         $validated = $request->validate([
             'nama' => 'required|string',
-            'id_card' => 'required|numeric|digits:16|unique:customers,id_card',
+            'id_card' => 'required|numeric|digits:16',
             'alamat' => 'required|string',
             'no_telepon' => 'required|numeric',
         ]);
-        $customer = Customer::findOrFail($id);
+        $customer = Customer::find($id);
         $customer->update($validated);
 
         return redirect()->route('customers.index')

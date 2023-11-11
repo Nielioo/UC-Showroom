@@ -61,8 +61,8 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public function customers()
-    {
-        return $this->hasOne(Customer::class);
-    }
+    // public function customers()
+    // {
+    //     return $this->hasOne(Customer::class);
+    // }
 }

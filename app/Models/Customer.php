@@ -22,10 +22,10 @@ class Customer extends Model
     ];
 
     //relationship
-    public function users(): BelongsTo
-    {
-        return $this->belongsTo(User::class);
-    }
+    // public function users(): BelongsTo
+    // {
+    //     return $this->belongsTo(User::class);
+    // }
 
     public function orders(): HasMany
     {

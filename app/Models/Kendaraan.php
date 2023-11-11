@@ -19,6 +19,8 @@ class Kendaraan extends Model
         'jumlah_penumpang',
         'manufaktur',
         'harga',
+        'jenis_kendaraan_id',
+        'jenis_kendaraan_type',
     ];
 
     // polymorphism
