@@ -13,19 +13,11 @@ return new class extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
+            $table->string('nama')->unique();
             $table->string('id_card')->unique();
             $table->string('alamat');
             $table->string('no_telepon');
-            $table->unsignedBigInteger('user_id');
             $table->timestamps();
-        });
-
-        // foreign key
-        Schema::table('customers', function (Blueprint $table) {
-            $table->foreign('user_id')
-                ->references('id')->on('users')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
         });
     }
 

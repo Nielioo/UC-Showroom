@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\KendaraanController;
 use App\Http\Controllers\MobilController;
 use App\Http\Controllers\MotorController;
@@ -32,11 +33,9 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 
-    Route::resource('roles', RoleController::class);
-    Route::resource('users', UserController::class);
+    // Route::resource('roles', RoleController::class);
+    // Route::resource('users', UserController::class);
 
+    Route::resource('customers', CustomerController::class);
     Route::resource('kendaraans', KendaraanController::class);
-    Route::resource('mobils', MobilController::class);
-    Route::resource('motors', MotorController::class);
-    Route::resource('trucks', TruckController::class);
 });
