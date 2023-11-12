@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('kendaraans', function (Blueprint $table) {
             $table->id();
+            $table->string('image_path')->nullable();
             $table->string('model');
             $table->integer('tahun');
             $table->integer('jumlah_penumpang');

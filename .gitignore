@@ -1,4 +1,5 @@
 .DS_Store
+public/images/*
 
 /.phpunit.cache
 /node_modules

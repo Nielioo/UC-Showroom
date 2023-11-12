@@ -36,13 +36,22 @@ class KendaraanController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request);
         $validated = $request->validate([
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:4096',
             'model' => 'required',
             'tahun' => 'required|digits:4',
             'jumlah_penumpang' => 'required|digits_between:1,2',
             'manufaktur' => 'required',
             'harga' => 'required|digits_between:1,14',
         ]);
+
+        // upload image
+        $image = $request->file('image');
+        $imageName = 'kendaraan'.time().'.'.$image->getClientOriginalExtension();
+        $image->move(public_path('images'), $imageName);
+        $imagePath = 'images/'.$imageName;
+        $validated['image_path'] = $imagePath;
 
         // check if the jenis_kendaraan_type is Mobil or Motor or Truck
         $current_jenis_kendaraan_type = $request->input('jenis_kendaraan_type');
@@ -109,6 +118,7 @@ class KendaraanController extends Controller
     public function update(Request $request, string $id)
     {
         $validated = $request->validate([
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:4096',
             'model' => 'required',
             'tahun' => 'required|digits:4',
             'jumlah_penumpang' => 'required|digits_between:1,2',
@@ -116,6 +126,15 @@ class KendaraanController extends Controller
             'harga' => 'required',
         ]);
         $kendaraan = Kendaraan::find($id);
+
+        // update image
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = 'kendaraan'.time().'.'.$image->getClientOriginalExtension();
+            $image->move(public_path('images'), $imageName);
+            $imagePath = 'images/'.$imageName;
+            $validated['image_path'] = $imagePath;
+        }
 
         $kendaraan->update($validated);
 

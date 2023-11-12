@@ -8,6 +8,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-md sm:rounded-lg p-4">
+                <img src="{{ asset($kendaraan->image_path) }}" alt="kendaraan_image" class="w-64">
                 model: {{ $kendaraan->model }} <br>
                 tahun: {{ $kendaraan->tahun }} <br>
                 jumlah_penumpang: {{ $kendaraan->jumlah_penumpang }} <br>

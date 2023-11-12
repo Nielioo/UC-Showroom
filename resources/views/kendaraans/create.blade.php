@@ -11,9 +11,13 @@
 
                 <x-validation-errors class="mb-4" />
 
-                <form action="{{ route('kendaraans.store') }}" method="POST">
+                <form action="{{ route('kendaraans.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
+                    <div>
+                        <x-label for="image" value="{{ __('Upload Gambar') }}" />
+                        <x-input id="image" class="block mt-1 w-full p-2 " type="file" name="image" accept="image/*"/>
+                    </div>
                     <div>
                         <x-label for="model" value="{{ __('Model') }}" />
                         <x-input id="model" class="block mt-1 w-full p-2" type="text" name="model"

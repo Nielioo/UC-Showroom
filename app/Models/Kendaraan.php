@@ -14,6 +14,7 @@ class Kendaraan extends Model
 
     protected $fillable =
     [
+        'image_path',
         'model',
         'tahun',
         'jumlah_penumpang',
