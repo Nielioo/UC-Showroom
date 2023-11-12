@@ -40,7 +40,7 @@
                             :value="old('harga')" required />
                     </div>
                     <div class="mt-4">
-                        <x-label for="harga" value="{{ __('Jenis Kendaraan Type') }}" />
+                        <x-label for="jenis_kendaraan_type" value="{{ __('Jenis Kendaraan Type') }}" />
                         <select name="jenis_kendaraan_type" id="jenis_kendaraan_type" onchange="manipulateInputs()">
                             <option disabled selected>Pilih Jenis Kendaraan</option>
                             <option value="Mobil">Mobil</option>

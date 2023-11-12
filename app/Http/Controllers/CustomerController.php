@@ -49,6 +49,7 @@ class CustomerController extends Controller
     public function show(Customer $customer)
     {
         // Not implemented
+        return view('customers.index');
     }
 
     /**

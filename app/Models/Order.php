@@ -20,12 +20,12 @@ class Order extends Model
     ];
 
     // relationship
-    public function customers(): BelongsTo
+    public function customer(): BelongsTo
     {
         return $this->belongsTo(Customer::class);
     }
 
-    public function kendaraans(): BelongsTo
+    public function kendaraan(): BelongsTo
     {
         return $this->belongsTo(Kendaraan::class);
     }

@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
 
                 CustomerSeeder::class,
                 KendaraanSeeder::class,
+                OrderSeeder::class,
             ]
         );
     }
