@@ -48,10 +48,12 @@ class KendaraanController extends Controller
 
         // upload image
         $image = $request->file('image');
-        $imageName = 'kendaraan'.time().'.'.$image->getClientOriginalExtension();
-        $image->move(public_path('images'), $imageName);
-        $imagePath = 'images/'.$imageName;
-        $validated['image_path'] = $imagePath;
+        if ($image) {
+            $imageName = 'kendaraan'.time().'.'.$image->getClientOriginalExtension();
+            $image->move(public_path('images'), $imageName);
+            $imagePath = 'images/'.$imageName;
+            $validated['image_path'] = $imagePath;
+        }
 
         // check if the jenis_kendaraan_type is Mobil or Motor or Truck
         $current_jenis_kendaraan_type = $request->input('jenis_kendaraan_type');
