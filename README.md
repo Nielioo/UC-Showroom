@@ -39,3 +39,12 @@ php artisan test
 php artisan test --filter=ExampleTest
 
 ```
+
+```bash
+# run available test
+php artisan test --filter=CustomerTest
+php artisan test --filter=KendaraanTest
+php artisan test --filter=OrderTest
+```
+
+
