@@ -25,3 +25,26 @@ Then launch the server:
 ``` bash
 php artisan serve
 ```
+
+## Testing
+
+``` bash
+# make a new test
+php artisan make:test ExampleTest
+
+# run all test
+php artisan test
+
+# run specific test
+php artisan test --filter=ExampleTest
+
+```
+
+```bash
+# run available test
+php artisan test --filter=CustomerTest
+php artisan test --filter=KendaraanTest
+php artisan test --filter=OrderTest
+```
+
+
